@@ -55,7 +55,7 @@
 								"onecommeStreamUUID": raw.data.service.id,
 								"onecommeStreamScreenName": raw.data.service.name,
 								"onecommeStreamColor": (raw.data.service.color ? 
-									"#"+raw.data.service.color.r.toString(16)+raw.data.service.color.g.toString(16)+raw.data.service.color.b.toString(16)
+									"#"+raw.data.service.color.r.toString(16).padStart( 2, '0')+raw.data.service.color.g.toString(16).padStart( 2, '0')+raw.data.service.color.b.toString(16).padStart( 2, '0')
 									: "black"
 								),
 								"write": raw.data.service.write
