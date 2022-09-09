@@ -1,11 +1,22 @@
 # Change Log
 
 ## Unreleased
+### Added
+* metaInfo要素に配信サイトをクラスで追加
+
+## 0.2.0 (2022-09-10)
+### Added
+* 文字コードを指定
+
+### Removed
+* わんコメを実行しているＰＣ外からの利用
+	* 問題が解決したらまた実装したい
+	* これにより、わんコメへの接続が`localhost:11180`固定に
 
 ## 0.1.0 (2022-09-09)
 ### Changed
-* 各放送ごとのブロックを`<div>`から`<metaInfo>`に
-* 各放送ごとのブロックのidを`metaInfo_XXXX-XXXXXXXX…`の形式から`XXXX-XXXXXXXX…`の形式に
+* [破壊]各放送ごとのブロックを`<div>`から`<metaInfo>`に
+* [破壊]各放送ごとのブロックのidを`metaInfo_XXXX-XXXXXXXX…`の形式から`XXXX-XXXXXXXX…`の形式に
 
 ## 0.0.5 (2022-09-09)
 ### Fixed

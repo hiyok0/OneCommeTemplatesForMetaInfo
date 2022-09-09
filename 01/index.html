@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
-<!--Last Update: 0.1.0-->
+<!--Last Update: 0.2.0-->
 <html lang="ja">
-<head></head>
+<head>
+	<meta charset="UTF-8">
+</head>
 <body> 
 	<style>
 		#aaaaa{display: none;}
@@ -213,7 +215,8 @@
 			"applyTimer": 0
 		};
 		main.applyTimer = setInterval(main.apply,2500);
-		const onecommeWebSocket = new WebSocket("ws://" + (location.host ? location.host : "localhost:11180") + "/sub", "text");
+		//const onecommeWebSocket = new WebSocket("ws://" + (location.host ? location.host : "localhost:11180") + "/sub", "text");
+		const onecommeWebSocket = new WebSocket("ws://localhost:11180/sub", "text");
 		onecommeWebSocket.onmessage = function (event) {
 			main.gather(JSON.parse(event.data));
 			//console.log(main.data);
@@ -225,14 +228,14 @@
 	<div id="app">
 		<!--雛形
 		<div id="metaInfo_XXXX-XXXXXXXX……">
-			<div class="eachMetaInfo common name"></div>
-			<div class="eachMetaInfo common title"></div>
-			<div class="eachMetaInfo common viewer"></div>
-			<div class="eachMetaInfo common total"></div>
+			<div class="eachMetaInfo youtube twitch twicas mixch showroom bilibili mirrativ twitter niconama name"></div>
+			<div class="eachMetaInfo youtube twitch twicas mixch showroom bilibili mirrativ twitter niconama title"></div>
+			<div class="eachMetaInfo youtube twitch twicas showroom bilibili mirrativ viewer"></div>
+			<div class="eachMetaInfo twicas mixch mirrativ niconama total"></div>
 			<div class="eachMetaInfo youtube upVote"></div>
-			<div class="eachMetaInfo twitch showroom follower></div>
+			<div class="eachMetaInfo twitch mixch showroom follower></div>
 			<div class="eachMetaInfo niconama points gift"></div>
-			<div class="eachMetaInfo niconama points ad"></div>
+			<div class="eachMetaInfo mixch niconama points ad"></div>
 		</div>
 		-->	
 		</div>
