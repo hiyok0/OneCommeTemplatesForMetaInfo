@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.1.0 (2022-09-09)
+### Changed
+* 各放送ごとのブロックを`<div>`から`<metaInfo>`に
+* 各放送ごとのブロックのidを`metaInfo_XXXX-XXXXXXXX…`の形式から`XXXX-XXXXXXXX…`の形式に
+
 ## 0.0.5 (2022-09-09)
 ### Fixed
 * 放送枠ごとのブロックの、marginを調整し上下に余白を持たせた
