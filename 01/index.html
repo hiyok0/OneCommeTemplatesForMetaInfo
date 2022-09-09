@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!--0.0.1-->
+<!--0.0.2-->
 <html lang="ja">
 <head></head>
 <body> 
@@ -115,13 +115,13 @@
 						console.log("the div element metaInfo_"+onecommeStreamUUID+" is created!");
 						const eachMetaInfoFragment = document.createDocumentFragment();
 						for(const eachMetaInfoClasses of [ //各クラス
-							["common", "name"],
-							["common", "title"],
-							["common", "viewer"],
-							["common", "total"],
+							["youtube", "twitch", "twicas", "mixch", "showroom", "bilibili", "mirrativ", "twitter", "niconama", "name"],
+							["youtube", "twitch", "twicas", "mixch", "showroom", "bilibili", "mirrativ", "twitter", "niconama", "title"],
+							["youtube", "twitch", "twicas", "showroom", "bilibili", "mirrativ", "viewer"],
+							["twicas", "mixch", "mirrativ", "niconama", "total"],
 							["youtube", "upVote"],
-							["twitch", "showroom", "follower"],
-							["niconama", "points", "gift"],
+							["twitch", "mixch", "showroom", "follower"],
+							["mixch", "niconama", "points", "gift"],
 							["niconama", "points", "ad"]
 						]){
 							const eachMetaInfoElement = document.createElement("div");
@@ -155,19 +155,19 @@
 								break;
 							//枠の名は
 							case "onecommeStreamScreenName":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo common name","枠名",main.data[onecommeStreamUUID][dataKey]);
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo youtube twitch twicas mixch showroom bilibili mirrativ twitter niconama name","枠名",main.data[onecommeStreamUUID][dataKey]);
 								break;
 							//配信タイトル
 							case "title":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo common title","配信タイトル",main.data[onecommeStreamUUID][dataKey]);
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo youtube twitch twicas mixch showroom bilibili mirrativ twitter niconama title","配信タイトル",main.data[onecommeStreamUUID][dataKey]);
 								break;
 							//（現）視聴者数
 							case "viewer":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo common viewer","視聴者数",main.data[onecommeStreamUUID][dataKey].toString(10));
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo youtube twitch twicas showroom bilibili mirrativ viewer","視聴者数",main.data[onecommeStreamUUID][dataKey].toString(10));
 								break;
 							//総視聴者数
 							case "total":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo common total","総視聴者数",main.data[onecommeStreamUUID][dataKey].toString(10));
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo twicas mixch mirrativ niconama total","総視聴者数",main.data[onecommeStreamUUID][dataKey].toString(10));
 								break;
 							//高評価（YouTubeのみ）
 							case "upVote":
@@ -175,11 +175,11 @@
 								break;
 							//follower（Twitch Showroomのみ）
 							case "follower":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo twitch showroom follower","フォロワー",main.data[onecommeStreamUUID][dataKey]);
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo twitch mixch showroom follower","フォロワー",main.data[onecommeStreamUUID][dataKey]);
 								break;
 							//ポインツ（ニコニコ生放送のみ）
 							case "points":
-								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo niconama points gift","ギフト",main.data[onecommeStreamUUID][dataKey].gift.toString(10));
+								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo mixch niconama points gift","ギフト",main.data[onecommeStreamUUID][dataKey].gift.toString(10));
 								main.writeToTemplate("metaInfo_"+onecommeStreamUUID,"eachMetaInfo niconama points ad","広告",main.data[onecommeStreamUUID][dataKey].ad.toString(10));
 								break;
 							//共通部分（除く：枠の色）
