@@ -6,7 +6,7 @@
 * そのうちアプデ来るかも。
 * リリース時のブログ→ https://hiyoko.pages.dev/blog/2022/metatemplate-001/
 
-##Hiyoko Watching U
+## Hiyoko Watching U
 * わんコメのフォーラムに来てた質問にチャレンジしたもの。そのため、本当にただ表示しているだけなことに注意。
 * わんコメでの「ブラウザで開く」機能には非対応。obsのremote debuggingを使ってください。
 * もともとの名前は`WatchUserDB`だったが、ちょっと作ってみただけのテンプレートにこんな一般的な名前をつけてしまうのは申し訳ないと思い改名。
