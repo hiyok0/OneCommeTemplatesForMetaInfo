@@ -5,7 +5,9 @@
 * metaInfo要素に配信サイトをクラスで追加
 
 ## 0.3.1 (2022-09-20)
-* テンプレート「Hiyoko Watching U」の見た目の改善
+* テンプレート「Hiyoko Watching U」
+	* 見た目の改善
+	* PRO版ディレクトリに対応
 
 ## 0.3.0 (2022-09-20)
 * テンプレート「Hiyoko Watching U」を追加

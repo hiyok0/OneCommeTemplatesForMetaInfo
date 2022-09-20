@@ -5,7 +5,8 @@
 		const shutoku = new XMLHttpRequest();
 		const userdb = {
 			'getUrl': function(){
-				switch(location.pathname.split('/')[1]){
+				const pathnames = location.pathname.split('/')
+				switch(pathnames[pathnames.length - 3]){
 					case '__pro':
 						return '../../../user.db';
 						break;
