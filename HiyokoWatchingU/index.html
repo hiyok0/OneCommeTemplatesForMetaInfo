@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+		const shutoku = new XMLHttpRequest();
+		const userdb = {
+			'getUrl': function(){
+				switch(location.pathname.split('/')[1]){
+					case '__pro':
+						return '../../../user.db';
+						break;
+					default:
+						return '../../user.db';
+				}
+			},
+			'url': "",
+			'getData': function(){
+				return new Promise((reslove, reject) => {
+					shutoku.open('GET', userdb.url);
+					shutoku.onload = function () {
+						if (shutoku.readyState == 4) {
+							reslove(JSON.parse(shutoku.responseText));
+						}else{
+							reject('readyState: '+shutoku.readyState+'　/ statusCode: '+shutoku.status);
+						}
+					}
+					shutoku.send();
+				});
+			},
+			'writeToTemplate': function(data){
+				for(const userId in data){if(data[userId].hasOwnProperty('id')){
+					const app = document.getElementById('app');
+					if(!document.getElementById(userId)){
+						const newEntry = document.createElement('div');
+						newEntry.id = userId;
+						const newEntryChildren = document.createDocumentFragment();
+						for(const newEntryChild of ['userName', 'userId', 'tc']){
+							const li = document.createElement('li');
+							li.classList.add(newEntryChild);
+							newEntryChildren.appendChild(li);
+						}
+						newEntry.appendChild(newEntryChildren);
+						app.appendChild(newEntry);
+					};
+					if(!data[userId].hasOwnProperty('username')){data[userId].username = data[userId].id}
+					if(!data[userId].hasOwnProperty('tc')){data[userId].tc = 'No DATA'}
+					const entry = document.getElementById(userId);
+					entry.getElementsByClassName('userId').item(0).textContent = data[userId].id;
+					entry.getElementsByClassName('userName').item(0).textContent = data[userId].username;
+					entry.getElementsByClassName('tc').item(0).textContent = data[userId].tc;
+				}}
+			},
+			'main': function(sec){
+				userdb.getData()
+				.then(data => {
+					userdb.writeToTemplate(data);
+					clearTimeout(userdb.timeoutID);
+					userdb.timeoutID = setTimeout(userdb.main, 5000);
+				})
+				.catch(err => {console.log(err);});
+			},
+			'timeoutID': ''
+		};
+		userdb.url = userdb.getUrl();
+		userdb.main();
+	</script>
+	<style>
+		#app{
+			list-style: none;
+			display:flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			font-family: monospace;
+			font-size: 16px;
+		}
+		div:not(#app){
+			margin: 0 2em 2em 0;
+			padding: 1em;
+			border-radius: 0.8em;
+			border: 1px solid black;
+		}
+		li.userId:before{content: '　ユーザＩＤ：'}
+		li.userName:before{content: 'ユーザネーム：'}
+		li.tc:before{content: '　　Ｔ　Ｃ　：'}
+	</style>
+</head>
+<body>
+	<div id='app'></div>
+</body>
+</html>
